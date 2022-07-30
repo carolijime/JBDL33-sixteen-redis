@@ -7,6 +7,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -74,14 +75,14 @@ public class PersonController {
 
     @PostMapping("/lpush/person")
     public void lpush(@RequestBody List<Person> person){
-
-        redisTemplate.opsForList().leftPushAll(PERSON_LIST_KEY, person);
+        List<Object> objects = Arrays.asList(person.toArray());
+        redisTemplate.opsForList().leftPushAll(PERSON_LIST_KEY, objects);
     }
 
     @PostMapping("/rpush/person")
     public void rpush(@RequestBody List<Person> person){
-
-        redisTemplate.opsForList().rightPushAll(PERSON_LIST_KEY, person);
+        List<Object> objects = Arrays.asList(person.toArray());
+        redisTemplate.opsForList().rightPushAll(PERSON_LIST_KEY, objects);
     }
 
     @DeleteMapping("/lpop/person")

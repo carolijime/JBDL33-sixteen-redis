@@ -12,6 +12,18 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
 public class PersonConfig {
+
+    /**
+     *
+     * How to install Redis in Windows:
+     * https://redis.io/docs/getting-started/installation/install-redis-on-windows/
+     * https://developer.redis.com/create/windows/
+     * create account for redis on the cloud: https://app.redislabs.com/#/login
+     * run redis (in Ubuntu): redis-server
+     * run redis cli - local (in ubuntu, second open window): redis-cli
+     * run redis cli - cloud (in ubuntu, second open window): redis-cli -h redis-14040.c9.us-east-1-4.ec2.cloud.redislabs.com -p 14040 -a qLWIcjofl1rRmidYlx7xdWRvhy57SlWjA
+     */
+
     //function in case we could like to modularize our code, but we could be just adding it to the RedisTemplate function
 
     @Bean
